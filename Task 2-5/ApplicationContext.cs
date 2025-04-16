@@ -22,7 +22,7 @@ namespace Task_2_5
                     .IsUnique();
                 entity.Property(e => e.Login)
                     .IsRequired();
-                entity.Property(e => e.Pass)
+                entity.Property(e => e.PassHash)
                     .IsRequired();
             });
             

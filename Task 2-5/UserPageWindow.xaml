@@ -12,7 +12,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}">
-    <Grid Background="#E3F2FD">
+    <Grid Background="#BAF1FD">
         <materialDesign:Card Margin="50" VerticalAlignment="Center" Padding="30">
             <materialDesign:Card.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="#DDDDDD"/>
@@ -41,8 +41,8 @@
                             <GridViewColumn Header="Логин" 
                                             DisplayMemberBinding="{Binding Login}" 
                                             Width="200"/>
-                            <GridViewColumn Header="Пароль" 
-                                            DisplayMemberBinding="{Binding Pass}" 
+                            <GridViewColumn Header="Хэш пароля" 
+                                            DisplayMemberBinding="{Binding PassHash}" 
                                             Width="200"/>
                         </GridView>
                     </ListView.View>

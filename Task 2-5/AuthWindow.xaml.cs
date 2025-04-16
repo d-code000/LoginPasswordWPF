@@ -26,10 +26,10 @@ namespace Task_2_5
                 using (ApplicationContext db = new ApplicationContext())
                 {
                     authUser = db.Users
-                        .FirstOrDefault(user => user.Login == login && user.Pass == pass);
+                        .FirstOrDefault(user => user.Login == login);
                 }
-                
-                if (authUser != null)
+
+                if (authUser != null && authUser.VerifyPassword(pass))
                 {
                     UserPageWindow userPageWindow = new UserPageWindow();
                     userPageWindow.Show();

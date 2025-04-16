@@ -1,22 +1,47 @@
-﻿namespace Task_2_5
+﻿using System.Security.Cryptography;
+using System.Text;
+
+namespace Task_2_5;
+
+public class User
 {
-    public class User
+    public int Id { get; init; }
+    public string? Login { get; init; }
+    public string? PassHash { get; init; }
+    public User() { }
+    public User(string? login, string? password)
     {
-        public int Id { get; init; }
-        public string? Login { get; init; }
-        public string? Pass { get; init; }
+        Login = login;
+        PassHash = HashPassword(password);
+    }
+    private static string? HashPassword(string? password)
+    {
+        if (string.IsNullOrEmpty(password))
+            return null;
 
-        public User() { }
-
-        public User(string? login, string? pass)
+        using SHA256 sha256 = SHA256.Create();
+        byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+        byte[] hashBytes = sha256.ComputeHash(passwordBytes);
+        StringBuilder builder = new StringBuilder();
+        foreach (var t in hashBytes)
         {
-            Login = login;
-            Pass = pass;
+            builder.Append(t.ToString("x2"));
         }
+                
+        return builder.ToString();
+    }
+    
+    public bool VerifyPassword(string? password)
+    {
+        if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(PassHash))
+            return false;
 
-        public override string ToString()
-        {
-            return $"ID: {Id}, Логин: {Login}, Пароль: {Pass}";
-        }
+        string? inputPasswordHash = HashPassword(password);
+        return inputPasswordHash == PassHash;
+    }
+    
+    public override string ToString()
+    {
+        return $"ID: {Id}, Логин: {Login}, Хэш пароля: {PassHash}";
     }
 }
