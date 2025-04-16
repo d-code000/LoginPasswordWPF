@@ -1,16 +1,14 @@
-﻿using System;
-
-namespace Task_2_5
+﻿namespace Task_2_5
 {
     public class User
     {
-        public int Id { get; set; }
-        public string Login { get; set; }
-        public string Pass { get; set; }
+        public int Id { get; init; }
+        public string? Login { get; init; }
+        public string? Pass { get; init; }
 
         public User() { }
 
-        public User(string login, string pass)
+        public User(string? login, string? pass)
         {
             Login = login;
             Pass = pass;

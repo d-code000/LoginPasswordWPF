@@ -10,5 +10,28 @@ namespace Task_2_5
         {
             optionsBuilder.UseSqlite("Data Source=BDreg.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd();
+                entity.HasIndex(e => e.Login)
+                    .IsUnique();
+                entity.Property(e => e.Login)
+                    .IsRequired();
+                entity.Property(e => e.Pass)
+                    .IsRequired();
+            });
+            
+            base.OnModelCreating(modelBuilder);
+        }
+        
+        public void EnsureDbCreated()
+        {
+            Database.EnsureCreated();
+        }
     }
 }
