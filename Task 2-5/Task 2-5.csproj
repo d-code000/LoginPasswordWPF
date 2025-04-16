@@ -9,4 +9,9 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+      <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.119" />
+    </ItemGroup>
+
 </Project>

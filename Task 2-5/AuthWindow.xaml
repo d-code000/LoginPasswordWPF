@@ -1,11 +1,11 @@
-﻿<Window x:Class="Task_2_5.MainWindow"
+﻿<Window x:Class="Task_2_5.AuthWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Приложение для регистрации и авторизации" 
+        Title="Авторизация" 
         Height="500" Width="600"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -18,7 +18,7 @@
                 <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2" Color="#DDDDDD"/>
             </materialDesign:Card.Effect>
             <StackPanel>
-                <TextBlock Text="Регистрация пользователя" 
+                <TextBlock Text="Авторизация пользователя" 
                            FontSize="24" 
                            FontWeight="Bold" 
                            HorizontalAlignment="Center"
@@ -36,23 +36,23 @@
                              Margin="0,10"
                              Height="50"/>
                 
-                <Button x:Name="RegisterButton" 
-                        Content="Зарегистрироваться" 
+                <Button x:Name="AuthButton" 
+                        Content="Войти" 
                         Margin="0,20,0,10"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         Height="45"
                         Background="#2196F3"
                         BorderBrush="#2196F3"
-                        Click="Button_Register_Click"/>
+                        Click="Button_Auth_Click"/>
                 
-                <Button x:Name="AuthButton" 
-                        Content="Вход" 
+                <Button x:Name="RegisterButton" 
+                        Content="Регистрация" 
                         Margin="0,10,0,0"
                         Style="{StaticResource MaterialDesignOutlinedButton}"
                         Height="45"
                         BorderBrush="#2196F3"
                         Foreground="#2196F3"
-                        Click="Button_Window_Auth_Click"/>
+                        Click="Button_Reg_Click"/>
             </StackPanel>
         </materialDesign:Card>
     </Grid>
